@@ -5,10 +5,12 @@ from django.urls import include, path
 from rest_framework import routers
 from rest_framework.authtoken import views
 
-from api.views import UserViewSet
+from api.views import GroupViewSet, PostViewSet, UserViewSet
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register('api/v1/posts', PostViewSet)
+router.register('api/v1/users', UserViewSet)
+router.register('api/v1/groups', GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
