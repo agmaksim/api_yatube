@@ -1,8 +1,5 @@
-import datetime as dt
-
-from rest_framework import serializers
-
 from posts.models import Comment, Group, Post, User
+from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):

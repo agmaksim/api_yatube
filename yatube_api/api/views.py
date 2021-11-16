@@ -1,11 +1,10 @@
-from rest_framework import views, viewsets, permissions
+from posts.models import Group, Post, User
+from rest_framework import permissions, viewsets
 from rest_framework.generics import get_object_or_404
 
-from posts.models import Comment, Group, Post, User
-
+from .permissions import AuthorPermissionReadOnlyAll
 from .serializers import (CommentSerializer, GroupSerializer, PostSerializer,
                           UserSerializer)
-from .permissions import AuthorPermissionReadOnlyAll
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
