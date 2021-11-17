@@ -3,14 +3,15 @@ from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
-    posts = serializers.StringRelatedField(
-        many=True,
+    posts = serializers.SlugRelatedField(
         read_only=True,
+        default=serializers.CurrentUserDefault(),
+        slug_field='username'
     )
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'posts')
+        fields = ('__all__')
         ref_name = 'ReadOnlyUsers'
 
 
